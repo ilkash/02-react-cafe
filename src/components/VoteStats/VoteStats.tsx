@@ -1,8 +1,14 @@
 import css from "./VoteStats.module.css";
 interface VoteStatsProps {
   votes: { good: number; neutral: number; bad: number };
+  totalVotes: number;
+  positiveRate: number;
 }
-export default function VoteStats({ votes }: VoteStatsProps) {
+export default function VoteStats({
+  votes,
+  totalVotes,
+  positiveRate,
+}: VoteStatsProps) {
   return (
     <div className={css.container}>
       <p className={css.stat}>
@@ -15,10 +21,10 @@ export default function VoteStats({ votes }: VoteStatsProps) {
         Bad: <strong>{votes.bad}</strong>
       </p>
       <p className={css.stat}>
-        Total: <strong>0</strong>
+        Total: <strong>{totalVotes}</strong>
       </p>
       <p className={css.stat}>
-        Positive: <strong>0%</strong>
+        Positive: <strong>{positiveRate}</strong>
       </p>
     </div>
   );
